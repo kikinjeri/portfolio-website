@@ -1,39 +1,47 @@
-// Hamburger menu toggle
+// Hamburger toggle
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("nav-links");
+
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
 
-// Smooth active link highlighting
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute('id');
-    }
-  });
-
-  navItems.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("show");
   });
 });
 
-// Scroll-triggered fade-in animations
-const allSections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+// Highlight active link on scroll
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a");
 
-allSections.forEach(section => observer.observe(section));
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 80;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight)
+      current = section.getAttribute("id");
+  });
+
+  navItems.forEach(link => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) link.classList.add("active");
+  });
+});
+
+// Contact Form using EmailJS
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const formMessage = document.getElementById("formMessage");
+
+  emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this, 'YOUR_PUBLIC_KEY')
+    .then(() => {
+      formMessage.textContent = "Message sent successfully!";
+      this.reset();
+    }, (error) => {
+      formMessage.textContent = "Oops! Something went wrong.";
+      console.error(error);
+    });
+});

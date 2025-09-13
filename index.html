@@ -3,84 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Mwihaki Githii - Web Developer</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="nav-title">My Portfolio</div>
-    <button class="hamburger" id="hamburger">☰</button>
-    <nav>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <h1 class="logo">Web Developer</h1>
+    <div class="hamburger" id="hamburger">☰</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- Home Section -->
-  <section id="home" class="home section">
-    <h1>Hi, I'm Mwihaki</h1>
-    <p>Junior Web Developer | Creative Problem Solver | Remote Ready</p>
+  <!-- Home Hero Section -->
+  <section id="home" class="full-section home-hero">
+    <div class="home-content">
+      <h1>Hi, I’m Mwihaki</h1>
+      <p>I’m a junior web developer building modern, responsive, and interactive websites.</p>
+      <p class="home-contact">Reach me at <a href="mailto:wikigi.git@proton.me">wikigi.git@proton.me</a></p>
+      <a href="#contact" class="cta-btn">Get in Touch</a>
+    </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="about section">
-    <h2>About Me</h2>
+  <section id="about" class="full-section about-modern">
     <div class="about-container">
-      <img src="profile.jpg" alt="My Photo" class="about-img">
-      <p>
-        I’m passionate about building clean, functional, and user-friendly web applications. 
-        Always learning and eager to contribute to exciting projects. My goal is to deliver high-quality work and continuously grow as a developer.
-      </p>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>
+          I am a web developer with a strong interest in creating user-friendly and visually
+          appealing websites. I enjoy learning new technologies and applying them to real-world
+          projects. My goal is to build modern, responsive, and interactive web experiences
+          that leave a lasting impression.
+        </p>
+      </div>
+      <img src="/images/selfie.jpg" alt="Profile Picture" class="profile-pic">
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="projects section">
-    <h2>My Projects</h2>
-    <div class="project-cards">
-      <a href="https://github.com/yourusername/project1" target="_blank" class="card">
-        <div class="card-img-container">
-          <img src="project1.jpg" alt="Project One" class="project-img">
-          <div class="overlay"><span>Project One</span></div>
-        </div>
-        <p>A responsive website built with HTML, CSS, and JavaScript.</p>
-      </a>
-      <a href="https://github.com/yourusername/project2" target="_blank" class="card">
-        <div class="card-img-container">
-          <img src="project2.jpg" alt="Project Two" class="project-img">
-          <div class="overlay"><span>Project Two</span></div>
-        </div>
-        <p>A modern portfolio showcasing design and development skills.</p>
-      </a>
-      <a href="https://github.com/yourusername/project3" target="_blank" class="card">
-        <div class="card-img-container">
-          <img src="project3.jpg" alt="Project Three" class="project-img">
-          <div class="overlay"><span>Project Three</span></div>
-        </div>
-        <p>An interactive app with clean UI and responsive layout.</p>
-      </a>
+  <section id="projects" class="full-section projects-modern">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>A description of your first project. Built with HTML, CSS, and JavaScript.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>A description of your second project. A responsive web design example.</p>
+      </div>
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <p>A description of your third project. Interactive features with JavaScript.</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact section">
-    <h2>Contact Me</h2>
-    <p>Email: yourname@email.com</p>
-  </section>
+  <section id="contact" class="full-section contact-modern">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+        <p id="formMessage" class="form-message"></p>
+      </form>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Mwihaki Githii | 
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a> | 
-      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-    </p>
-  </footer>
+      <div class="contact-info">
+        <p>Email: <a href="mailto:wikigi.git@proton.me">wikigi.git@proton.me</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+        <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+      </div>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
